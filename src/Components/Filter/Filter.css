@@ -1,0 +1,40 @@
+#filter {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1120px;
+  width: 90%;
+  height: 100%;
+  margin: 1em auto;
+
+  color: var(--clr-gray);
+  position: relative;
+}
+
+.filter__text {
+  flex-shrink: 0;
+}
+
+.filter__icon {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-inline: 0.5em;
+}
+
+.filter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter__btn {
+  border: none;
+  background: none;
+  color: var(--clr-gray);
+  cursor: pointer;
+  white-space: nowrap;
+  margin-left: 1em;
+  font-size: 1rem;
+  /* align-self: center; */
+}

@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+/* CSS RESET */
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ff-main: 'Open Sans', sans-serif;
+
+  --clr-black: #000;
+  --clr-gray: #757575;
+  --clr-white: #fff;
+  --clr-bg: #e5e5e5;
+}
+
+body {
+  background-color: var(--clr-bg);
+  font-family: var(--ff-main);
+}
+
 h1 {
   color: #00008B;
+  text-align: center;
+  font-size: 3rem;
+}
+
+h1, h2, p {
+  margin: 0;
+  padding: 0;
 }
