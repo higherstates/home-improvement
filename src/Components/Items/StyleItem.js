@@ -1,29 +1,42 @@
-import React, { useContext } from 'react'
-import { MainContext } from '../Main/Main'
-
+import React, { useContext } from "react";
+import { MainContext } from "../Main/Main";
 
 const StyleItem = ({ style }) => {
-  const { styles, setStyles, active, setActive } = useContext(MainContext)
+	const {
+		filters,
+		setFilters,
+		active,
+		setActive,
+		filteredItems,
+		setFilteredItems,
+		data,
+	} = useContext(MainContext);
 
+	const handleStyle = (style) => {
+		if (!filters.includes(style)) {
+			setFilters([...filters, style]);
+			// setActive(true)
+			let newItem = data.filter((d) =>
+				d.metaData.designStyle.includes(style.id)
+			);
+			setFilteredItems([...filteredItems, ...newItem]);
+		} else {
+			console.log("blarghhh");
+			setFilters(filters.filter((s) => s != style));
+			setFilteredItems(
+				filteredItems.filter(
+					(item) => !item.metaData.designStyle.includes(style.id)
+				)
+			);
+			// setActive(false)
+		}
+	};
 
-  const handleStyle = (style) => {
-    if (!styles.includes(style)) {
-      setStyles([...styles, style])
-      setActive(true)
-    } else {
-      setStyles(styles.filter((s) => s != style))
-      setActive(false)
-    }
-  }
+	return (
+		<li className="filter-box__item" onClick={() => handleStyle(style)}>
+			{style.label}
+		</li>
+	);
+};
 
-  return (
-    <li 
-      className="filter-box__item"
-      onClick={() => handleStyle(style.label)}
-    >
-      {style.label}
-    </li>
-  )
-}
-
-export default StyleItem
+export default StyleItem;
